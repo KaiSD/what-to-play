@@ -97,7 +97,7 @@
 <body>
     <h2>Games I'm Playing:</h2>
     <div id="gameList"></div>
-    <input type="text" id="gameInput" placeholder="Enter game name...">
+    <input type="text" id="gameInput" placeholder="Enter game name..." onkeyup="handleEnterKey(event)">
     <button onclick="addGame()">Add Game</button>
 
     <button id="bigButton" onclick="selectRandomGame()">What to play today?</button>
@@ -178,6 +178,12 @@
                 const randomGame = gameList[Math.floor(Math.random() * gameList.length)];
                 document.getElementById("selectedGame").textContent = `You should play: ${randomGame.name}`;
             };
+        }
+
+        function handleEnterKey(event) {
+            if (event.key === 'Enter') {
+                addGame();
+            }
         }
     </script>
 </body>
